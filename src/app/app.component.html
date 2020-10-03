@@ -1,11 +1,14 @@
-<div class="container"> <!--CONTENEDOR PRINCIPAL-->
+<div class="container">
+  <!--CONTENEDOR PRINCIPAL-->
   <br>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!--BARRA DE  NAVEGACION-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!--BARRA DE  NAVEGACION-->
     <a class="navbar-brand" href="#">
       <img src="assets/images/angular.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        NG-BLOG
+      NG-BLOG
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -19,7 +22,7 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav navbar-rigth">
+      <ul class="navbar-nav navbar-rigth" *ngIf="!identity">
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/login']">Login</a>
         </li>
@@ -28,10 +31,11 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav navbar-rigth">
+      <ul class="navbar-nav navbar-rigth" *ngIf="identity && identity.name">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Nombre Usuario
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{ identity.name + ' ' + identity.surname }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Crear entrada</a>
@@ -39,16 +43,17 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Mi perfil</a>
             <a class="dropdown-item" href="#">Ajustes</a>
-            <a class="dropdown-item" href="#">Salir</a>
+            <a class="dropdown-item" [routerLink]="['/logout/1']">Salir</a>
           </div>
         </li>
       </ul>
 
     </div>
-  </nav> <!--CERRAR BARRA DE NAVEGACION-->
+  </nav>
+  <!--CERRAR BARRA DE NAVEGACION-->
 
   <!--CONTENIDO-->
   <router-outlet></router-outlet>
 
-</div> <!--CERRA CONTENEDOR PRINCIPAL-->
-
+</div>
+<!--CERRA CONTENEDOR PRINCIPAL-->
