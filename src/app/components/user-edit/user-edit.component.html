@@ -1,4 +1,4 @@
-<div class="col-md-12 mt-3">
+<div class="col-md-12 mt-3 mb-3">
   <h1>{{page_title}}</h1>
   <p *ngIf="status != 'success'">
     Modifica tus datos personales de usuario.
@@ -43,12 +43,13 @@
     </div>
     <div class="form-group">
       <label for="description">Biografía</label>
-      <textarea [froalaEditor]='options' name="description" class="form-control" #description="ngModel"
+      <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel"
         [(ngModel)]="user.description"></textarea>
     </div>
     <div class="form-group">
       <label for="image">Avatar</label>
-      <input type="file" name="image" class="form-control" />
+      <angular-file-uploader [config]="afuConfig" (ApiResponse)="avatarUpload($event)">
+      </angular-file-uploader>
     </div>
 
     <input type="submit" value="Guardar cambios" class="btn btn-success" [disabled]="userEditForm.invalid" />
