@@ -17,8 +17,8 @@
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Categorias</a>
+        <li class="nav-item" *ngFor="let category of categories">
+          <a class="nav-link" href="#">{{  category.name }}</a>
         </li>
       </ul>
 
@@ -44,7 +44,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Crear entrada</a>
-            <a class="dropdown-item" href="#">Crear Categoria</a>
+            <a class="dropdown-item" [routerLink]="['/crear-categoria']">Crear Categoria</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Mi perfil</a>
             <a class="dropdown-item" [routerLink]="['/ajustes']">Ajustes</a>
@@ -54,11 +54,15 @@
       </ul>
 
     </div>
-  </nav>
-  <!--CERRAR BARRA DE NAVEGACION-->
+  </nav> <!--CERRAR BARRA DE NAVEGACION-->
 
   <!--CONTENIDO-->
   <router-outlet></router-outlet>
 
-</div>
-<!--CERRA CONTENEDOR PRINCIPAL-->
+  <footer class="mb-2" style="text-align: center;">
+    <hr>
+    Desarrollo Front End con <a href="https://github.com/JL-OLEMAR/front-end-angular">JL-Olemar</a> &copy;
+    <hr>
+  </footer>
+
+</div> <!--CERRA CONTENEDOR PRINCIPAL-->
