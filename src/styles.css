@@ -1,5 +1,6 @@
 .avatar_edit{
   width: 150px;
+  height: 150px;
   margin-bottom: 10px;
 }
 
@@ -13,4 +14,22 @@
 
 .avatar_mask img{
   height: 40px;
+}
+
+.card-header a{
+  color: #444;
+}
+
+.card-header a:hover{
+  color: black;
+}
+
+.post-image{
+  height: 200px;
+  overflow: hidden;
+}
+
+footer{
+  margin-top: 50px;
+  color: lightgray;
 }

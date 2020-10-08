@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Componente de registro lanzado!');
+    //console.log('Componente de registro lanzado!');
     console.log(this._userService.test());
   }
 

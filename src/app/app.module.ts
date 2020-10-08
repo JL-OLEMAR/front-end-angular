@@ -13,6 +13,13 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
+import { PostNewComponent } from './components/post-new/post-new.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { PostEditComponent } from './components/post-edit/post-edit.component';
+import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
+
+import { UserService } from './services/user.service';
+import { IdentityGuard } from './services/identity.guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,11 @@ import { CategoryNewComponent } from './components/category-new/category-new.com
     HomeComponent,
     ErrorComponent,
     UserEditComponent,
-    CategoryNewComponent
+    CategoryNewComponent,
+    PostNewComponent,
+    PostDetailComponent,
+    PostEditComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +45,9 @@ import { CategoryNewComponent } from './components/category-new/category-new.com
     routing
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    IdentityGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

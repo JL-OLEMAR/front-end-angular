@@ -3,7 +3,7 @@
   <br>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!--BARRA DE  NAVEGACION-->
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" [routerLink]="['/inicio']">
       <img src="assets/images/angular.png" width="30" height="30" class="d-inline-block align-top" alt="">
       NG-BLOG
     </a>
@@ -18,7 +18,7 @@
           <a class="nav-link" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngFor="let category of categories">
-          <a class="nav-link" href="#">{{  category.name }}</a>
+          <a class="nav-link" [routerLink]="['/categoria', category.id]">{{  category.name }}</a>
         </li>
       </ul>
 
@@ -43,7 +43,7 @@
             {{ identity.name + ' ' + identity.surname }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Crear entrada</a>
+            <a class="dropdown-item" [routerLink]="['/crear-entrada']">Crear entrada</a>
             <a class="dropdown-item" [routerLink]="['/crear-categoria']">Crear Categoria</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Mi perfil</a>
@@ -58,6 +58,8 @@
 
   <!--CONTENIDO-->
   <router-outlet></router-outlet>
+
+
 
   <footer class="mb-2" style="text-align: center;">
     <hr>
