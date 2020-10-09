@@ -4,7 +4,8 @@
 <div class="col-md-12 mt-3 mb-3" *ngIf="post">
   <h1>{{post.title}}</h1>
   <p>
-    {{post.category.name}} - {{post.user.name+' '+post.user.surname}}
+    {{post.category.name}}  <a *ngIf="identity" [routerLink]="['/perfil', post.user.id]"> - {{post.user.name+' '+post.user.surname}}</a>
+    <a *ngIf="!identity"> - {{post.user.name+' '+post.user.surname}}</a>
   </p>
   <hr />
   <p [innerHTML]="post.content"></p>
